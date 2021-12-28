@@ -1,0 +1,660 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (javaCalls.cpp:51), pid=8560, tid=0x0000000000001958
+#  guarantee(thread->is_Java_thread()) failed: crucial check - the VM thread cannot and must not escape to Java code
+#
+# JRE version: OpenJDK Runtime Environment (8.0_312-b07) (build 1.8.0_312-b07)
+# Java VM: OpenJDK 64-Bit Server VM (25.312-b07 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/ojdkbuild/ojdkbuild/issues
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000026e14800):  VMThread [stack: 0x0000000027f50000,0x0000000028050000] [id=6488]
+
+Stack: [0x0000000027f50000,0x0000000028050000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+VM_Operation (0x000000002855f3f0): GetOrSetLocal, mode: safepoint, requested by thread 0x0000000026ea5000
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000026fe2800 JavaThread "Service Thread" daemon [_thread_blocked, id=1968, stack(0x0000000028b60000,0x0000000028c60000)]
+  0x0000000026fd1800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=6528, stack(0x0000000028a60000,0x0000000028b60000)]
+  0x0000000026fce800 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=4704, stack(0x0000000028960000,0x0000000028a60000)]
+  0x0000000026fce000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=7956, stack(0x0000000028860000,0x0000000028960000)]
+  0x0000000026fca000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=4988, stack(0x0000000028760000,0x0000000028860000)]
+  0x0000000026ec3000 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=1748, stack(0x0000000028660000,0x0000000028760000)]
+  0x0000000026ec0000 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=6800, stack(0x0000000028560000,0x0000000028660000)]
+  0x0000000026ea5000 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=5388, stack(0x0000000028460000,0x0000000028560000)]
+  0x0000000026e94800 JavaThread "Attach Listener" daemon [_thread_blocked, id=5232, stack(0x0000000028360000,0x0000000028460000)]
+  0x0000000026ea2000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=8700, stack(0x0000000028260000,0x0000000028360000)]
+  0x0000000025e5e000 JavaThread "Finalizer" daemon [_thread_blocked, id=7472, stack(0x0000000028150000,0x0000000028250000)]
+  0x0000000026e18000 JavaThread "Reference Handler" daemon [_thread_blocked, id=516, stack(0x0000000028050000,0x0000000028150000)]
+  0x0000000002d48000 JavaThread "main" [_thread_blocked, id=3140, stack(0x0000000002b00000,0x0000000002c00000)]
+
+Other Threads:
+=>0x0000000026e14800 VMThread [stack: 0x0000000027f50000,0x0000000028050000] [id=6488]
+  0x0000000027079000 WatcherThread [stack: 0x0000000028c60000,0x0000000028d60000] [id=1744]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000000002d458e0] Threads_lock - owner thread: 0x0000000026e14800
+
+heap address: 0x00000005c1600000, size: 8170 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+Heap:
+ PSYoungGen      total 153088K, used 13162K [0x0000000715d00000, 0x0000000720780000, 0x00000007c0000000)
+  eden space 131584K, 10% used [0x0000000715d00000,0x00000007169dab20,0x000000071dd80000)
+  from space 21504K, 0% used [0x000000071f280000,0x000000071f280000,0x0000000720780000)
+  to   space 21504K, 0% used [0x000000071dd80000,0x000000071dd80000,0x000000071f280000)
+ ParOldGen       total 349696K, used 0K [0x00000005c1600000, 0x00000005d6b80000, 0x0000000715d00000)
+  object space 349696K, 0% used [0x00000005c1600000,0x00000005c1600000,0x00000005d6b80000)
+ Metaspace       used 6226K, capacity 6366K, committed 6528K, reserved 1056768K
+  class space    used 606K, capacity 629K, committed 640K, reserved 1048576K
+
+Card table byte_map: [0x00000000121c0000,0x00000000131c0000] byte_map_base: 0x000000000f3b5000
+
+Marking Bits: (ParMarkBitMap*) 0x000000005f364110
+ Begin Bits: [0x0000000014470000, 0x000000001c418000)
+ End Bits:   [0x000000001c418000, 0x00000000243c0000)
+
+Polling page: 0x0000000000910000
+
+CodeCache: size=245760Kb used=1354Kb max_used=1354Kb free=244405Kb
+ bounds [0x0000000002e00000, 0x0000000003070000, 0x0000000011e00000]
+ total_blobs=414 nmethods=117 adapters=217
+ compilation: enabled
+
+Compilation events (222 events):
+Event: 0.454 Thread 0x0000000026fd1800    1       3       java.util.Arrays::copyOf (19 bytes)
+Event: 0.454 Thread 0x0000000026fd1800 nmethod 1 0x0000000002f08d90 code [0x0000000002f08f00, 0x0000000002f09248]
+Event: 0.454 Thread 0x0000000026fd1800    3   !   3       sun.instrument.TransformerManager::transform (98 bytes)
+Event: 0.455 Thread 0x0000000026fd1800 nmethod 3 0x0000000002f06c50 code [0x0000000002f06de0, 0x0000000002f072a8]
+Event: 0.455 Thread 0x0000000026fd1800    2       3       sun.instrument.InstrumentationImpl::transform (38 bytes)
+Event: 0.455 Thread 0x0000000026fd1800 nmethod 2 0x0000000002f08850 code [0x0000000002f089c0, 0x0000000002f08c68]
+Event: 0.455 Thread 0x0000000026fd1800    4       1       sun.instrument.TransformerManager::getSnapshotTransformerList (5 bytes)
+Event: 0.455 Thread 0x0000000026fd1800 nmethod 4 0x0000000002f06890 code [0x0000000002f069e0, 0x0000000002f06af0]
+Event: 0.455 Thread 0x0000000026fd1800    6       3       java.lang.String::equals (81 bytes)
+Event: 0.456 Thread 0x0000000026fd1800 nmethod 6 0x0000000002f07b50 code [0x0000000002f07ce0, 0x0000000002f08250]
+Event: 0.456 Thread 0x0000000026fd1800    7       3       java.lang.StringBuilder::<init> (7 bytes)
+Event: 0.456 Thread 0x0000000026fd1800 nmethod 7 0x0000000002f15450 code [0x0000000002f155c0, 0x0000000002f15870]
+Event: 0.456 Thread 0x0000000026fd1800    9       3       java.lang.String::<init> (82 bytes)
+Event: 0.456 Thread 0x0000000026fca000    5       4       java.lang.String::hashCode (55 bytes)
+Event: 0.456 Thread 0x0000000026fce800    8       4       java.lang.Object::<init> (1 bytes)
+Event: 0.456 Thread 0x0000000026fd1800 nmethod 9 0x0000000002f14950 code [0x0000000002f14b20, 0x0000000002f15058]
+Event: 0.456 Thread 0x0000000026fd1800   10       1       java.net.URL::getProtocol (5 bytes)
+Event: 0.456 Thread 0x0000000026fd1800 nmethod 10 0x0000000002f14690 code [0x0000000002f147e0, 0x0000000002f148f0]
+Event: 0.456 Thread 0x0000000026fce000   14       4       java.lang.AbstractStringBuilder::ensureCapacityInternal (27 bytes)
+Event: 0.456 Thread 0x0000000026fd1800   11       3       java.lang.AbstractStringBuilder::append (29 bytes)
+Event: 0.457 Thread 0x0000000026fce800 nmethod 8 0x0000000002f14450 code [0x0000000002f14580, 0x0000000002f14618]
+Event: 0.457 Thread 0x0000000026fce800   18       4       java.lang.String::indexOf (70 bytes)
+Event: 0.457 Thread 0x0000000026fd1800 nmethod 11 0x0000000002f16750 code [0x0000000002f16900, 0x0000000002f16e58]
+Event: 0.457 Thread 0x0000000026fd1800   12       3       java.io.WinNTFileSystem::isSlash (18 bytes)
+Event: 0.457 Thread 0x0000000026fd1800 nmethod 12 0x0000000002f16390 code [0x0000000002f164e0, 0x0000000002f166d0]
+Event: 0.457 Thread 0x0000000026fd1800   17  s    3       java.lang.StringBuffer::append (13 bytes)
+Event: 0.457 Thread 0x0000000026fd1800 nmethod 17 0x0000000002f0b390 code [0x0000000002f0b540, 0x0000000002f0bc78]
+Event: 0.457 Thread 0x0000000026fd1800   19       3       java.lang.String::indexOf (7 bytes)
+Event: 0.457 Thread 0x0000000026fd1800 nmethod 19 0x0000000002f15f50 code [0x0000000002f160c0, 0x0000000002f162e8]
+Event: 0.457 Thread 0x0000000026fd1800   15       3       sun.nio.fs.WindowsPathParser::isSlash (18 bytes)
+Event: 0.457 Thread 0x0000000026fd1800 nmethod 15 0x0000000002f0b010 code [0x0000000002f0b160, 0x0000000002f0b330]
+Event: 0.457 Thread 0x0000000026fd1800   24       3       java.lang.String::startsWith (7 bytes)
+Event: 0.458 Thread 0x0000000026fd1800 nmethod 24 0x0000000002f0abd0 code [0x0000000002f0ad40, 0x0000000002f0af68]
+Event: 0.458 Thread 0x0000000026fd1800   22       3       java.lang.AbstractStringBuilder::append (50 bytes)
+Event: 0.458 Thread 0x0000000026fd1800 nmethod 22 0x0000000002f09bd0 code [0x0000000002f09da0, 0x0000000002f0a4f8]
+Event: 0.458 Thread 0x0000000026fd1800   28       3       java.lang.String::startsWith (72 bytes)
+Event: 0.458 Thread 0x0000000026fd1800 nmethod 28 0x0000000002f17110 code [0x0000000002f17280, 0x0000000002f175b0]
+Event: 0.458 Thread 0x0000000026fd1800   20       3       java.lang.StringBuilder::append (8 bytes)
+Event: 0.458 Thread 0x0000000026fce800 nmethod 18 0x0000000002f1a590 code [0x0000000002f1a6e0, 0x0000000002f1a8b8]
+Event: 0.458 Thread 0x0000000026fce800   16       4       java.lang.String::length (6 bytes)
+Event: 0.458 Thread 0x0000000026fca000 nmethod 5 0x0000000002f09810 code [0x0000000002f09940, 0x0000000002f09ad8]
+Event: 0.458 Thread 0x0000000026fca000   26       4       java.lang.CharacterData::of (120 bytes)
+Event: 0.458 Thread 0x0000000026fce000 nmethod 14 0x0000000002f1a010 code [0x0000000002f1a160, 0x0000000002f1a408]
+Event: 0.458 Thread 0x0000000026fd1800 nmethod 20 0x0000000002f19550 code [0x0000000002f19700, 0x0000000002f19cb8]
+Event: 0.458 Thread 0x0000000026fce000   27       4       java.lang.CharacterDataLatin1::getProperties (11 bytes)
+Event: 0.458 Thread 0x0000000026fd1800   23       1       java.util.ArrayList::size (5 bytes)
+Event: 0.458 Thread 0x0000000026fd1800 nmethod 23 0x0000000002f15c10 code [0x0000000002f15d60, 0x0000000002f15e70]
+Event: 0.458 Thread 0x0000000026fd1800   21       3       java.util.AbstractCollection::<init> (5 bytes)
+Event: 0.458 Thread 0x0000000026fce800 nmethod 16 0x0000000002f17dd0 code [0x0000000002f17f00, 0x0000000002f17f98]
+Event: 0.458 Thread 0x0000000026fce800   29       4       sun.security.provider.SHA2::lf_S (11 bytes)
+Event: 0.458 Thread 0x0000000026fd1800 nmethod 21 0x0000000002f17a10 code [0x0000000002f17b60, 0x0000000002f17d10]
+Event: 0.458 Thread 0x0000000026fca000 nmethod 26 0x0000000002f14210 code [0x0000000002f14340, 0x0000000002f143b8]
+Event: 0.458 Thread 0x0000000026fca000   31       4       sun.security.provider.SHA2::lf_delta1 (21 bytes)
+Event: 0.459 Thread 0x0000000026fce000 nmethod 27 0x0000000002f17790 code [0x0000000002f178c0, 0x0000000002f17958]
+Event: 0.459 Thread 0x0000000026fce000   33       4       sun.security.provider.SHA2::lf_sigma1 (21 bytes)
+Event: 0.459 Thread 0x0000000026fd1800   39 %     3       sun.security.provider.SHA2::implCompress0 @ 133 (322 bytes)
+Event: 0.459 Thread 0x0000000026fce800 nmethod 29 0x0000000002f15990 code [0x0000000002f15ac0, 0x0000000002f15af8]
+Event: 0.459 Thread 0x0000000026fce800   34       4       sun.security.provider.SHA2::lf_ch (10 bytes)
+Event: 0.459 Thread 0x0000000026fca000 nmethod 31 0x0000000002f1add0 code [0x0000000002f1af00, 0x0000000002f1af58]
+Event: 0.459 Thread 0x0000000026fca000   35       4       sun.security.provider.SHA2::lf_sigma0 (20 bytes)
+Event: 0.459 Thread 0x0000000026fce000 nmethod 33 0x0000000002f1abd0 code [0x0000000002f1ad00, 0x0000000002f1ad58]
+Event: 0.459 Thread 0x0000000026fce000   36       4       sun.security.provider.SHA2::lf_maj (12 bytes)
+Event: 0.459 Thread 0x0000000026fce000 nmethod 36 0x0000000002f1a9d0 code [0x0000000002f1ab00, 0x0000000002f1ab58]
+Event: 0.459 Thread 0x0000000026fce000   32       4       sun.security.provider.SHA2::lf_delta0 (20 bytes)
+Event: 0.459 Thread 0x0000000026fce800 nmethod 34 0x0000000002f18f90 code [0x0000000002f190c0, 0x0000000002f19118]
+Event: 0.459 Thread 0x0000000026fce800   38       4       java.lang.Integer::reverseBytes (26 bytes)
+Event: 0.459 Thread 0x0000000026fca000 nmethod 35 0x0000000002f18d90 code [0x0000000002f18ec0, 0x0000000002f18f18]
+Event: 0.459 Thread 0x0000000026fca000   13       4       java.lang.String::charAt (29 bytes)
+Event: 0.459 Thread 0x0000000026fce000 nmethod 32 0x0000000002f18b90 code [0x0000000002f18cc0, 0x0000000002f18d18]
+Event: 0.459 Thread 0x0000000026fce000   30       4       sun.security.provider.SHA2::lf_R (4 bytes)
+Event: 0.459 Thread 0x0000000026fce800 nmethod 38 0x0000000002f18990 code [0x0000000002f18ac0, 0x0000000002f18b38]
+Event: 0.459 Thread 0x0000000026fce000 nmethod 30 0x0000000002f187d0 code [0x0000000002f18900, 0x0000000002f18938]
+Event: 0.460 Thread 0x0000000026fd1800 nmethod 39% 0x0000000002f1cc10 code [0x0000000002f1ce60, 0x0000000002f1deb0]
+Event: 0.460 Thread 0x0000000026fd1800   40       3       sun.security.provider.ByteArrayAccess::b2iBig64 (614 bytes)
+Event: 0.460 Thread 0x0000000026fce800   43       4       sun.security.provider.SHA2::implCompress0 (322 bytes)
+Event: 0.460 Thread 0x0000000026fca000 nmethod 13 0x0000000002f1b3d0 code [0x0000000002f1b520, 0x0000000002f1b618]
+Event: 0.460 Thread 0x0000000026fd1800 nmethod 40 0x0000000002f1f290 code [0x0000000002f1f4c0, 0x0000000002f20268]
+Event: 0.460 Thread 0x0000000026fd1800   41       3       sun.security.provider.SHA2::implCompress (13 bytes)
+Event: 0.460 Thread 0x0000000026fd1800 nmethod 41 0x0000000002f18050 code [0x0000000002f18200, 0x0000000002f185a8]
+Event: 0.460 Thread 0x0000000026fd1800   42       3       sun.security.provider.SHA2::implCompressCheck (15 bytes)
+Event: 0.461 Thread 0x0000000026fd1800 nmethod 42 0x0000000002f1c610 code [0x0000000002f1c7a0, 0x0000000002f1ca98]
+Event: 0.461 Thread 0x0000000026fd1800   44       3       java.util.Objects::requireNonNull (14 bytes)
+Event: 0.461 Thread 0x0000000026fd1800 nmethod 44 0x0000000002f1c190 code [0x0000000002f1c300, 0x0000000002f1c528]
+Event: 0.467 Thread 0x0000000026fce000   45       4       java.lang.Math::min (11 bytes)
+Event: 0.467 Thread 0x0000000026fce000 nmethod 45 0x0000000002f1b1d0 code [0x0000000002f1b300, 0x0000000002f1b358]
+Event: 0.469 Thread 0x0000000026fd1800   46       3       java.lang.String::lastIndexOf (52 bytes)
+Event: 0.470 Thread 0x0000000026fd1800 nmethod 46 0x0000000002f1bad0 code [0x0000000002f1bc60, 0x0000000002f1c008]
+Event: 0.471 Thread 0x0000000026fce800 nmethod 43 0x0000000002f21350 code [0x0000000002f214a0, 0x0000000002f21d58]
+Event: 0.473 Thread 0x0000000026fd1800   47       3       java.lang.String::indexOf (166 bytes)
+Event: 0.473 Thread 0x0000000026fca000   50       4       java.lang.Character::toUpperCaseEx (30 bytes)
+Event: 0.473 Thread 0x0000000026fce000   51       4       java.lang.CharacterDataLatin1::toUpperCaseEx (71 bytes)
+Event: 0.473 Thread 0x0000000026fd1800 nmethod 47 0x0000000002f24910 code [0x0000000002f24ac0, 0x0000000002f25110]
+Event: 0.473 Thread 0x0000000026fd1800   48       3       java.io.WinNTFileSystem::normalize (143 bytes)
+Event: 0.473 Thread 0x0000000026fd1800 nmethod 48 0x0000000002f23a90 code [0x0000000002f23c80, 0x0000000002f24508]
+Event: 0.473 Thread 0x0000000026fd1800   52       3       java.util.Arrays::copyOfRange (63 bytes)
+Event: 0.474 Thread 0x0000000026fce000 nmethod 51 0x0000000002f22290 code [0x0000000002f223c0, 0x0000000002f224b8]
+Event: 0.474 Thread 0x0000000026fca000 nmethod 50 0x0000000002f20dd0 code [0x0000000002f20f00, 0x0000000002f20fd8]
+Event: 0.474 Thread 0x0000000026fd1800 nmethod 52 0x0000000002f22750 code [0x0000000002f22960, 0x0000000002f234d8]
+Event: 0.474 Thread 0x0000000026fd1800   49       3       java.lang.String::endsWith (17 bytes)
+Event: 0.474 Thread 0x0000000026fd1800 nmethod 49 0x0000000002f20910 code [0x0000000002f20a80, 0x0000000002f20cc8]
+Event: 0.474 Thread 0x0000000026fd1800   53       1       java.net.URL::getHost (5 bytes)
+Event: 0.474 Thread 0x0000000026fd1800 nmethod 53 0x0000000002f27f50 code [0x0000000002f280a0, 0x0000000002f281b0]
+Event: 0.475 Thread 0x0000000026fd1800   56       3       java.lang.String::getChars (62 bytes)
+Event: 0.475 Thread 0x0000000026fd1800 nmethod 56 0x0000000002f27610 code [0x0000000002f277e0, 0x0000000002f27c98]
+Event: 0.475 Thread 0x0000000026fd1800   58       3       java.lang.String::toUpperCase (439 bytes)
+Event: 0.476 Thread 0x0000000026fd1800 nmethod 58 0x0000000002f28210 code [0x0000000002f28540, 0x0000000002f29df8]
+Event: 0.476 Thread 0x0000000026fd1800   62       3       sun.nio.cs.UTF_8$Decoder::decode (779 bytes)
+Event: 0.479 Thread 0x0000000026fd1800 nmethod 62 0x0000000002f2ad50 code [0x0000000002f2b400, 0x0000000002f30118]
+Event: 0.479 Thread 0x0000000026fd1800   64       3       java.util.HashMap::getNode (148 bytes)
+Event: 0.480 Thread 0x0000000026fd1800 nmethod 64 0x0000000002f26510 code [0x0000000002f266e0, 0x0000000002f270c8]
+Event: 0.480 Thread 0x0000000026fd1800   65       3       sun.reflect.ClassFileAssembler::emitByte (11 bytes)
+Event: 0.480 Thread 0x0000000026fd1800 nmethod 65 0x0000000002f260d0 code [0x0000000002f26240, 0x0000000002f26428]
+Event: 0.480 Thread 0x0000000026fd1800   66       3       sun.reflect.ByteVectorImpl::add (38 bytes)
+Event: 0.480 Thread 0x0000000026fd1800 nmethod 66 0x0000000002f25c10 code [0x0000000002f25d80, 0x0000000002f25fa8]
+Event: 0.480 Thread 0x0000000026fd1800   63       3       java.lang.Character::toLowerCase (6 bytes)
+Event: 0.480 Thread 0x0000000026fd1800 nmethod 63 0x0000000002f256d0 code [0x0000000002f25840, 0x0000000002f25ad8]
+Event: 0.480 Thread 0x0000000026fd1800   60       1       java.net.URL::getPath (5 bytes)
+Event: 0.480 Thread 0x0000000026fd1800 nmethod 60 0x0000000002f340d0 code [0x0000000002f34220, 0x0000000002f34330]
+Event: 0.480 Thread 0x0000000026fd1800   61       1       java.net.URL::getAuthority (5 bytes)
+Event: 0.480 Thread 0x0000000026fd1800 nmethod 61 0x0000000002f34390 code [0x0000000002f344e0, 0x0000000002f345f0]
+Event: 0.480 Thread 0x0000000026fd1800   57       3       java.lang.String::toCharArray (25 bytes)
+Event: 0.480 Thread 0x0000000026fd1800 nmethod 57 0x0000000002f34650 code [0x0000000002f347c0, 0x0000000002f34a48]
+Event: 0.480 Thread 0x0000000026fd1800   59       3       java.util.LinkedHashMap::get (33 bytes)
+Event: 0.480 Thread 0x0000000026fd1800 nmethod 59 0x0000000002f34b10 code [0x0000000002f34ca0, 0x0000000002f351a8]
+Event: 0.480 Thread 0x0000000026fd1800   54       3       java.util.ArrayList::rangeCheck (22 bytes)
+Event: 0.481 Thread 0x0000000026fd1800 nmethod 54 0x0000000002f35350 code [0x0000000002f35560, 0x0000000002f36018]
+Event: 0.481 Thread 0x0000000026fd1800   55       3       java.util.ArrayList::elementData (7 bytes)
+Event: 0.481 Thread 0x0000000026fd1800 nmethod 55 0x0000000002f36610 code [0x0000000002f36760, 0x0000000002f368f0]
+Event: 0.481 Thread 0x0000000026fd1800   67       3       java.util.HashMap::hash (20 bytes)
+Event: 0.481 Thread 0x0000000026fd1800 nmethod 67 0x0000000002f37150 code [0x0000000002f372c0, 0x0000000002f37528]
+Event: 0.481 Thread 0x0000000026fd1800   68       3       java.util.AbstractMap::<init> (5 bytes)
+Event: 0.481 Thread 0x0000000026fd1800 nmethod 68 0x0000000002f375d0 code [0x0000000002f37720, 0x0000000002f378d0]
+Event: 0.481 Thread 0x0000000026fd1800   69       3       java.lang.Math::max (11 bytes)
+Event: 0.482 Thread 0x0000000026fd1800 nmethod 69 0x0000000002f37990 code [0x0000000002f37ae0, 0x0000000002f37c70]
+Event: 0.482 Thread 0x0000000026fd1800   70       3       java.lang.System::getSecurityManager (4 bytes)
+Event: 0.482 Thread 0x0000000026fd1800 nmethod 70 0x0000000002f37cd0 code [0x0000000002f37e20, 0x0000000002f37f70]
+Event: 0.482 Thread 0x0000000026fd1800   71       1       java.net.URL::getFile (5 bytes)
+Event: 0.482 Thread 0x0000000026fd1800 nmethod 71 0x0000000002f38390 code [0x0000000002f384e0, 0x0000000002f385f0]
+Event: 0.482 Thread 0x0000000026fd1800   73       3       java.lang.String::replace (127 bytes)
+Event: 0.482 Thread 0x0000000026fd1800 nmethod 73 0x0000000002f38a10 code [0x0000000002f38bc0, 0x0000000002f39270]
+Event: 0.482 Thread 0x0000000026fd1800   75       3       java.util.Arrays::equals (54 bytes)
+Event: 0.482 Thread 0x0000000026fd1800 nmethod 75 0x0000000002f39650 code [0x0000000002f397c0, 0x0000000002f39b30]
+Event: 0.483 Thread 0x0000000026fd1800   76       3       java.lang.AbstractStringBuilder::newCapacity (39 bytes)
+Event: 0.483 Thread 0x0000000026fd1800 nmethod 76 0x0000000002f39c50 code [0x0000000002f39de0, 0x0000000002f3a1e8]
+Event: 0.483 Thread 0x0000000026fd1800   77       3       java.util.zip.ZStreamRef::address (5 bytes)
+Event: 0.484 Thread 0x0000000026fd1800 nmethod 77 0x0000000002f3a390 code [0x0000000002f3a4e0, 0x0000000002f3a630]
+Event: 0.484 Thread 0x0000000026fd1800   78       1       java.net.URL::getRef (5 bytes)
+Event: 0.484 Thread 0x0000000026fd1800 nmethod 78 0x0000000002f3a690 code [0x0000000002f3a7e0, 0x0000000002f3a8f0]
+Event: 0.484 Thread 0x0000000026fd1800   80       3       java.lang.StringBuilder::append (8 bytes)
+Event: 0.484 Thread 0x0000000026fce000   81       4       java.lang.CharacterDataLatin1::toLowerCase (39 bytes)
+Event: 0.484 Thread 0x0000000026fd1800 nmethod 80 0x0000000002f3a950 code [0x0000000002f3aac0, 0x0000000002f3ac68]
+Event: 0.484 Thread 0x0000000026fd1800   79       3       java.lang.String::indexOf (7 bytes)
+Event: 0.484 Thread 0x0000000026fd1800 nmethod 79 0x0000000002f3ad10 code [0x0000000002f3ae80, 0x0000000002f3b128]
+Event: 0.484 Thread 0x0000000026fd1800   83       3       java.lang.String::substring (79 bytes)
+Event: 0.484 Thread 0x0000000026fd1800 nmethod 83 0x0000000002f3b290 code [0x0000000002f3b460, 0x0000000002f3b958]
+Event: 0.484 Thread 0x0000000026fd1800   82       3       java.util.HashMap::get (23 bytes)
+Event: 0.484 Thread 0x0000000026fd1800 nmethod 82 0x0000000002f3d110 code [0x0000000002f3d2a0, 0x0000000002f3d6b8]
+Event: 0.484 Thread 0x0000000026fd1800   84       3       java.util.ArrayList::get (11 bytes)
+Event: 0.484 Thread 0x0000000026fce000 nmethod 81 0x0000000002f3efd0 code [0x0000000002f3f100, 0x0000000002f3f1d8]
+Event: 0.485 Thread 0x0000000026fd1800 nmethod 84 0x0000000002f3c9d0 code [0x0000000002f3cb60, 0x0000000002f3ceb8]
+Event: 0.485 Thread 0x0000000026fd1800   86  s!   3       sun.misc.URLClassPath::getLoader (243 bytes)
+Event: 0.486 Thread 0x0000000026fd1800 nmethod 86 0x0000000002f3f290 code [0x0000000002f3f6e0, 0x0000000002f42498]
+Event: 0.486 Thread 0x0000000026fd1800   87       3       java.util.concurrent.ConcurrentHashMap::tabAt (21 bytes)
+Event: 0.486 Thread 0x0000000026fd1800 nmethod 87 0x0000000002f3bfd0 code [0x0000000002f3c120, 0x0000000002f3c350]
+Event: 0.486 Thread 0x0000000026fd1800   85  s    3       sun.misc.URLClassPath::getNextLoader (88 bytes)
+Event: 0.486 Thread 0x0000000026fd1800 nmethod 85 0x0000000002f3dfd0 code [0x0000000002f3e1c0, 0x0000000002f3eaa8]
+Event: 0.486 Thread 0x0000000026fd1800   89       3       java.lang.String::lastIndexOf (13 bytes)
+Event: 0.486 Thread 0x0000000026fd1800 nmethod 89 0x0000000002f3db90 code [0x0000000002f3dd00, 0x0000000002f3df28]
+Event: 0.487 Thread 0x0000000026fd1800   90       3       java.util.HashMap::resize (359 bytes)
+Event: 0.487 Thread 0x0000000026fd1800 nmethod 90 0x0000000002f44210 code [0x0000000002f44460, 0x0000000002f45728]
+Event: 0.487 Thread 0x0000000026fd1800   93       1       java.lang.ref.Reference::get (5 bytes)
+Event: 0.487 Thread 0x0000000026fd1800 nmethod 93 0x0000000002f3d810 code [0x0000000002f3d960, 0x0000000002f3da70]
+Event: 0.487 Thread 0x0000000026fd1800   91   !   3       sun.misc.URLClassPath$JarLoader::getResource (85 bytes)
+Event: 0.488 Thread 0x0000000026fd1800 nmethod 91 0x0000000002f45f50 code [0x0000000002f46180, 0x0000000002f46c98]
+Event: 0.488 Thread 0x0000000026fd1800   94       3       java.util.HashMap::newNode (13 bytes)
+Event: 0.488 Thread 0x0000000026fd1800 nmethod 94 0x0000000002f47250 code [0x0000000002f473c0, 0x0000000002f47670]
+Event: 0.488 Thread 0x0000000026fd1800   95       3       java.util.HashMap::afterNodeInsertion (1 bytes)
+Event: 0.488 Thread 0x0000000026fd1800 nmethod 95 0x0000000002f47dd0 code [0x0000000002f47f20, 0x0000000002f48070]
+Event: 0.488 Thread 0x0000000026fd1800   92       1       java.util.jar.Manifest::getEntries (5 bytes)
+Event: 0.488 Thread 0x0000000026fd1800 nmethod 92 0x0000000002f480d0 code [0x0000000002f48220, 0x0000000002f48330]
+Event: 0.489 Thread 0x0000000026fd1800   96       1       java.net.URL::getQuery (5 bytes)
+Event: 0.489 Thread 0x0000000026fd1800 nmethod 96 0x0000000002f48c10 code [0x0000000002f48d60, 0x0000000002f48e70]
+Event: 0.489 Thread 0x0000000026fd1800   98       3       java.util.Arrays::copyOf (19 bytes)
+Event: 0.490 Thread 0x0000000026fd1800 nmethod 98 0x0000000002f48ed0 code [0x0000000002f49040, 0x0000000002f49388]
+Event: 0.490 Thread 0x0000000026fd1800   97       3       java.util.AbstractList::<init> (10 bytes)
+Event: 0.490 Thread 0x0000000026fd1800 nmethod 97 0x0000000002f494d0 code [0x0000000002f49640, 0x0000000002f49850]
+Event: 0.490 Thread 0x0000000026fd1800   99       3       sun.security.x509.X509CertImpl::getEncodedInternal (22 bytes)
+Event: 0.490 Thread 0x0000000026fd1800 nmethod 99 0x0000000002f49950 code [0x0000000002f49ac0, 0x0000000002f49ce8]
+Event: 0.491 Thread 0x0000000026fd1800  100       3       java.lang.Character::toUpperCase (6 bytes)
+Event: 0.491 Thread 0x0000000026fd1800 nmethod 100 0x0000000002f4a210 code [0x0000000002f4a380, 0x0000000002f4a618]
+Event: 0.491 Thread 0x0000000026fd1800  101       3       java.lang.Character::toUpperCase (9 bytes)
+Event: 0.491 Thread 0x0000000026fd1800 nmethod 101 0x0000000002f4a750 code [0x0000000002f4a8c0, 0x0000000002f4aaf8]
+Event: 0.491 Thread 0x0000000026fd1800  102       3       sun.security.x509.X509CertImpl::getEncodedInternal (20 bytes)
+Event: 0.491 Thread 0x0000000026fd1800 nmethod 102 0x0000000002f4abd0 code [0x0000000002f4ad80, 0x0000000002f4b2d8]
+Event: 0.491 Thread 0x0000000026fd1800  103   !   3       java.security.cert.Certificate::equals (38 bytes)
+Event: 0.492 Thread 0x0000000026fd1800 nmethod 103 0x0000000002f4b490 code [0x0000000002f4b6c0, 0x0000000002f4c428]
+Event: 0.492 Thread 0x0000000026fd1800  104       3       java.util.Arrays::copyOf (46 bytes)
+Event: 0.492 Thread 0x0000000026fd1800 nmethod 104 0x0000000002f4ca90 code [0x0000000002f4cc40, 0x0000000002f4d2e8]
+Event: 0.495 Thread 0x0000000026fd1800  106       1       java.util.zip.ZipFile::access$000 (5 bytes)
+Event: 0.495 Thread 0x0000000026fd1800 nmethod 106 0x0000000002f4d890 code [0x0000000002f4d9e0, 0x0000000002f4dad0]
+Event: 0.495 Thread 0x0000000026fd1800  107       1       java.net.URL::getPort (5 bytes)
+Event: 0.495 Thread 0x0000000026fd1800 nmethod 107 0x0000000002f4db50 code [0x0000000002f4dca0, 0x0000000002f4ddb0]
+Event: 271.034 Thread 0x0000000026fd1800  108       3       org.eclipse.jdt.launching.internal.org.objectweb.asm.ClassReader::readUnsignedShort (26 bytes)
+Event: 271.034 Thread 0x0000000026fd1800 nmethod 108 0x0000000002f4f590 code [0x0000000002f4f6e0, 0x0000000002f4f890]
+Event: 271.034 Thread 0x0000000026fd1800  111       3       org.eclipse.jdt.launching.internal.org.objectweb.asm.ClassReader::readUtf (161 bytes)
+Event: 271.035 Thread 0x0000000026fd1800 nmethod 111 0x0000000002f4f990 code [0x0000000002f4fb20, 0x0000000002f4ffe8]
+Event: 271.035 Thread 0x0000000026fd1800  109       3       org.eclipse.jdt.launching.internal.org.objectweb.asm.ClassReader::readUtf (44 bytes)
+Event: 271.035 Thread 0x0000000026fd1800 nmethod 109 0x0000000002f50450 code [0x0000000002f505e0, 0x0000000002f50a68]
+Event: 271.035 Thread 0x0000000026fd1800  110       3       org.eclipse.jdt.launching.internal.org.objectweb.asm.SymbolTable$Entry::<init> (17 bytes)
+Event: 271.036 Thread 0x0000000026fd1800 nmethod 110 0x0000000002f50dd0 code [0x0000000002f50f40, 0x0000000002f51128]
+Event: 271.036 Thread 0x0000000026fd1800  112       3       org.eclipse.jdt.launching.internal.org.objectweb.asm.SymbolTable::addConstantUtf8 (20 bytes)
+Event: 271.036 Thread 0x0000000026fd1800 nmethod 112 0x0000000002f511d0 code [0x0000000002f51360, 0x0000000002f51788]
+Event: 323.667 Thread 0x0000000026fd1800  113       3       org.eclipse.jdt.launching.internal.org.objectweb.asm.ClassReader::getItem (7 bytes)
+Event: 323.667 Thread 0x0000000026fd1800 nmethod 113 0x0000000002f519d0 code [0x0000000002f51b20, 0x0000000002f51c90]
+Event: 323.667 Thread 0x0000000026fd1800  114       3       org.eclipse.jdt.launching.internal.org.objectweb.asm.ClassReader::readUTF8 (23 bytes)
+Event: 323.668 Thread 0x0000000026fd1800 nmethod 114 0x0000000002f51d90 code [0x0000000002f51f00, 0x0000000002f52268]
+Event: 361.774 Thread 0x0000000026fd1800  115       3       org.eclipse.jdt.launching.internal.org.objectweb.asm.Symbol::<init> (38 bytes)
+Event: 361.774 Thread 0x0000000026fd1800 nmethod 115 0x0000000002f52410 code [0x0000000002f52560, 0x0000000002f52770]
+Event: 361.774 Thread 0x0000000026fd1800  117       3       org.eclipse.jdt.launching.internal.org.objectweb.asm.SymbolTable::hash (10 bytes)
+Event: 361.775 Thread 0x0000000026fd1800 nmethod 117 0x0000000002f52850 code [0x0000000002f529c0, 0x0000000002f52bc8]
+Event: 361.775 Thread 0x0000000026fd1800  116       3       org.eclipse.jdt.launching.internal.org.objectweb.asm.SymbolTable::add (39 bytes)
+Event: 361.775 Thread 0x0000000026fd1800 nmethod 116 0x0000000002f52c90 code [0x0000000002f52e00, 0x0000000002f53110]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (3 events):
+Event: 271.035 Thread 0x0000000026e14800 redefined class name=YMain2, count=1
+Event: 323.668 Thread 0x0000000026e14800 redefined class name=YMain2, count=2
+Event: 361.775 Thread 0x0000000026e14800 redefined class name=YMain2, count=3
+
+Internal exceptions (6 events):
+Event: 0.030 Thread 0x0000000002d48000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x0000000715d07cc0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\
+Event: 0.030 Thread 0x0000000002d48000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x0000000715d07fa8) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 4015
+Event: 48.407 Thread 0x0000000002d48000 Exception <a 'java/security/PrivilegedActionException'> (0x00000007167b2898) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1530]
+Event: 48.408 Thread 0x0000000002d48000 Exception <a 'java/security/PrivilegedActionException'> (0x00000007167b2c90) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1530]
+Event: 48.427 Thread 0x0000000002d48000 Exception <a 'java/security/PrivilegedActionException'> (0x00000007167b7ca8) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1530]
+Event: 48.428 Thread 0x0000000002d48000 Exception <a 'java/security/PrivilegedActionException'> (0x00000007167b80a0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1530]
+
+Events (250 events):
+Event: 181.087 Executing VM operation: GetOrSetLocal done
+Event: 181.087 Executing VM operation: GetOrSetLocal
+Event: 181.087 Executing VM operation: GetOrSetLocal done
+Event: 181.087 Executing VM operation: GetOrSetLocal
+Event: 181.087 Executing VM operation: GetOrSetLocal done
+Event: 181.087 Executing VM operation: GetOrSetLocal
+Event: 181.087 Executing VM operation: GetOrSetLocal done
+Event: 181.087 Executing VM operation: GetOrSetLocal
+Event: 181.087 Executing VM operation: GetOrSetLocal done
+Event: 181.088 Executing VM operation: GetOrSetLocal
+Event: 181.088 Executing VM operation: GetOrSetLocal done
+Event: 181.088 Executing VM operation: GetOrSetLocal
+Event: 181.088 Executing VM operation: GetOrSetLocal done
+Event: 181.088 Executing VM operation: GetOrSetLocal
+Event: 181.088 Executing VM operation: GetOrSetLocal done
+Event: 181.088 Executing VM operation: GetOrSetLocal
+Event: 181.088 Executing VM operation: GetOrSetLocal done
+Event: 181.088 Executing VM operation: GetOrSetLocal
+Event: 181.088 Executing VM operation: GetOrSetLocal done
+Event: 181.088 Executing VM operation: GetOrSetLocal
+Event: 181.088 Executing VM operation: GetOrSetLocal done
+Event: 181.089 Executing VM operation: GetOrSetLocal
+Event: 181.089 Executing VM operation: GetOrSetLocal done
+Event: 181.089 Executing VM operation: GetOrSetLocal
+Event: 181.089 Executing VM operation: GetOrSetLocal done
+Event: 181.089 Executing VM operation: GetOrSetLocal
+Event: 181.089 Executing VM operation: GetOrSetLocal done
+Event: 181.321 Executing VM operation: EnterInterpOnlyMode
+Event: 181.321 Executing VM operation: EnterInterpOnlyMode done
+Event: 181.321 Executing VM operation: GetCurrentLocation
+Event: 181.322 Executing VM operation: GetCurrentLocation done
+Event: 181.322 Executing VM operation: ChangeSingleStep
+Event: 181.322 Executing VM operation: ChangeSingleStep done
+Event: 181.329 Executing VM operation: ChangeSingleStep
+Event: 181.329 Executing VM operation: ChangeSingleStep done
+Event: 181.332 Executing VM operation: EnterInterpOnlyMode
+Event: 181.332 Executing VM operation: EnterInterpOnlyMode done
+Event: 181.342 Executing VM operation: GetOwnedMonitorInfo
+Event: 181.342 Executing VM operation: GetOwnedMonitorInfo done
+Event: 181.343 Executing VM operation: GetCurrentContendedMonitor
+Event: 181.343 Executing VM operation: GetCurrentContendedMonitor done
+Event: 181.343 Executing VM operation: GetOwnedMonitorInfo
+Event: 181.344 Executing VM operation: GetOwnedMonitorInfo done
+Event: 181.344 Executing VM operation: GetCurrentContendedMonitor
+Event: 181.344 Executing VM operation: GetCurrentContendedMonitor done
+Event: 181.345 Executing VM operation: GetCurrentContendedMonitor
+Event: 181.345 Executing VM operation: GetCurrentContendedMonitor done
+Event: 181.346 Executing VM operation: GetOwnedMonitorInfo
+Event: 181.346 Executing VM operation: GetOwnedMonitorInfo done
+Event: 181.364 Executing VM operation: GetOwnedMonitorInfo
+Event: 181.364 Executing VM operation: GetOwnedMonitorInfo done
+Event: 181.364 Executing VM operation: GetCurrentContendedMonitor
+Event: 181.364 Executing VM operation: GetCurrentContendedMonitor done
+Event: 181.423 Executing VM operation: GetOrSetLocal
+Event: 181.423 Executing VM operation: GetOrSetLocal done
+Event: 181.423 Executing VM operation: GetOrSetLocal
+Event: 181.423 Executing VM operation: GetOrSetLocal done
+Event: 181.423 Executing VM operation: GetOrSetLocal
+Event: 181.424 Executing VM operation: GetOrSetLocal done
+Event: 181.424 Executing VM operation: GetOrSetLocal
+Event: 181.424 Executing VM operation: GetOrSetLocal done
+Event: 181.424 Executing VM operation: GetOrSetLocal
+Event: 181.424 Executing VM operation: GetOrSetLocal done
+Event: 181.424 Executing VM operation: GetOrSetLocal
+Event: 181.424 Executing VM operation: GetOrSetLocal done
+Event: 181.424 Executing VM operation: GetOrSetLocal
+Event: 181.424 Executing VM operation: GetOrSetLocal done
+Event: 181.424 Executing VM operation: GetOrSetLocal
+Event: 181.424 Executing VM operation: GetOrSetLocal done
+Event: 181.424 Executing VM operation: GetOrSetLocal
+Event: 181.424 Executing VM operation: GetOrSetLocal done
+Event: 181.425 Executing VM operation: GetOrSetLocal
+Event: 181.425 Executing VM operation: GetOrSetLocal done
+Event: 181.425 Executing VM operation: GetOwnedMonitorInfo
+Event: 181.425 Executing VM operation: GetOwnedMonitorInfo done
+Event: 181.425 Executing VM operation: GetCurrentContendedMonitor
+Event: 181.425 Executing VM operation: GetCurrentContendedMonitor done
+Event: 181.561 Executing VM operation: EnterInterpOnlyMode
+Event: 181.561 Executing VM operation: EnterInterpOnlyMode done
+Event: 181.562 Executing VM operation: GetCurrentLocation
+Event: 181.562 Executing VM operation: GetCurrentLocation done
+Event: 181.562 Executing VM operation: ChangeSingleStep
+Event: 181.562 Executing VM operation: ChangeSingleStep done
+Event: 181.568 Executing VM operation: ChangeSingleStep
+Event: 181.568 Executing VM operation: ChangeSingleStep done
+Event: 181.574 Executing VM operation: GetOwnedMonitorInfo
+Event: 181.574 Executing VM operation: GetOwnedMonitorInfo done
+Event: 181.575 Executing VM operation: GetCurrentContendedMonitor
+Event: 181.575 Executing VM operation: GetCurrentContendedMonitor done
+Event: 181.575 Executing VM operation: GetOwnedMonitorInfo
+Event: 181.575 Executing VM operation: GetOwnedMonitorInfo done
+Event: 181.576 Executing VM operation: GetCurrentContendedMonitor
+Event: 181.576 Executing VM operation: GetCurrentContendedMonitor done
+Event: 181.577 Executing VM operation: GetCurrentContendedMonitor
+Event: 181.577 Executing VM operation: GetCurrentContendedMonitor done
+Event: 181.578 Executing VM operation: GetOwnedMonitorInfo
+Event: 181.578 Executing VM operation: GetOwnedMonitorInfo done
+Event: 181.650 Executing VM operation: GetOrSetLocal
+Event: 181.650 Executing VM operation: GetOrSetLocal done
+Event: 181.651 Executing VM operation: GetOrSetLocal
+Event: 181.651 Executing VM operation: GetOrSetLocal done
+Event: 181.651 Executing VM operation: GetOrSetLocal
+Event: 181.652 Executing VM operation: GetOrSetLocal done
+Event: 181.652 Executing VM operation: GetOrSetLocal
+Event: 181.652 Executing VM operation: GetOrSetLocal done
+Event: 181.653 Executing VM operation: GetOrSetLocal
+Event: 181.653 Executing VM operation: GetOrSetLocal done
+Event: 181.653 Executing VM operation: GetOrSetLocal
+Event: 181.653 Executing VM operation: GetOrSetLocal done
+Event: 181.654 Executing VM operation: GetOrSetLocal
+Event: 181.654 Executing VM operation: GetOrSetLocal done
+Event: 181.655 Executing VM operation: GetOrSetLocal
+Event: 181.655 Executing VM operation: GetOrSetLocal done
+Event: 181.655 Executing VM operation: GetOrSetLocal
+Event: 181.655 Executing VM operation: GetOrSetLocal done
+Event: 181.656 Executing VM operation: GetOrSetLocal
+Event: 181.656 Executing VM operation: GetOrSetLocal done
+Event: 181.657 Executing VM operation: GetOrSetLocal
+Event: 181.657 Executing VM operation: GetOrSetLocal done
+Event: 181.657 Executing VM operation: GetOrSetLocal
+Event: 181.658 Executing VM operation: GetOrSetLocal done
+Event: 181.658 Executing VM operation: GetOrSetLocal
+Event: 181.658 Executing VM operation: GetOrSetLocal done
+Event: 181.659 Executing VM operation: GetOrSetLocal
+Event: 181.659 Executing VM operation: GetOrSetLocal done
+Event: 181.660 Executing VM operation: GetOrSetLocal
+Event: 181.660 Executing VM operation: GetOrSetLocal done
+Event: 271.034 Executing VM operation: RedefineClasses
+Event: 271.035 Executing VM operation: RedefineClasses done
+Event: 271.039 Executing VM operation: ChangeBreakpoints
+Event: 271.039 Executing VM operation: ChangeBreakpoints done
+Event: 271.043 Executing VM operation: ChangeBreakpoints
+Event: 271.043 Executing VM operation: ChangeBreakpoints done
+Event: 271.052 Executing VM operation: GetOwnedMonitorInfo
+Event: 271.052 Executing VM operation: GetOwnedMonitorInfo done
+Event: 271.052 Executing VM operation: GetCurrentContendedMonitor
+Event: 271.052 Executing VM operation: GetCurrentContendedMonitor done
+Event: 323.664 Executing VM operation: GetCurrentLocation
+Event: 323.664 Executing VM operation: GetCurrentLocation done
+Event: 323.664 Executing VM operation: EnterInterpOnlyMode
+Event: 323.664 Executing VM operation: EnterInterpOnlyMode done
+Event: 323.664 Executing VM operation: ChangeSingleStep
+Event: 323.664 Executing VM operation: ChangeSingleStep done
+Event: 323.664 Executing VM operation: ChangeSingleStep
+Event: 323.664 Executing VM operation: ChangeSingleStep done
+Event: 323.668 Executing VM operation: RedefineClasses
+Event: 323.668 Executing VM operation: RedefineClasses done
+Event: 323.673 Executing VM operation: ChangeBreakpoints
+Event: 323.673 Executing VM operation: ChangeBreakpoints done
+Event: 323.677 Executing VM operation: ChangeBreakpoints
+Event: 323.677 Executing VM operation: ChangeBreakpoints done
+Event: 323.679 Executing VM operation: EnterInterpOnlyMode
+Event: 323.679 Executing VM operation: EnterInterpOnlyMode done
+Event: 323.679 Executing VM operation: GetCurrentLocation
+Event: 323.679 Executing VM operation: GetCurrentLocation done
+Event: 323.679 Executing VM operation: ChangeSingleStep
+Event: 323.679 Executing VM operation: ChangeSingleStep done
+Event: 323.680 Executing VM operation: ChangeSingleStep
+Event: 323.680 Executing VM operation: ChangeSingleStep done
+Event: 323.680 Executing VM operation: GetCurrentContendedMonitor
+Event: 323.680 Executing VM operation: GetCurrentContendedMonitor done
+Event: 323.681 Executing VM operation: GetOwnedMonitorInfo
+Event: 323.681 Executing VM operation: GetOwnedMonitorInfo done
+Event: 323.682 Executing VM operation: GetOwnedMonitorInfo
+Event: 323.682 Executing VM operation: GetOwnedMonitorInfo done
+Event: 323.682 Executing VM operation: GetCurrentContendedMonitor
+Event: 323.682 Executing VM operation: GetCurrentContendedMonitor done
+Event: 323.682 Executing VM operation: GetOwnedMonitorInfo
+Event: 323.682 Executing VM operation: GetOwnedMonitorInfo done
+Event: 323.682 Executing VM operation: GetCurrentContendedMonitor
+Event: 323.682 Executing VM operation: GetCurrentContendedMonitor done
+Event: 323.682 Executing VM operation: GetOwnedMonitorInfo
+Event: 323.682 Executing VM operation: GetOwnedMonitorInfo done
+Event: 323.682 Executing VM operation: GetCurrentContendedMonitor
+Event: 323.682 Executing VM operation: GetCurrentContendedMonitor done
+Event: 323.683 Executing VM operation: GetOwnedMonitorInfo
+Event: 323.683 Executing VM operation: GetOwnedMonitorInfo done
+Event: 323.683 Executing VM operation: GetCurrentContendedMonitor
+Event: 323.683 Executing VM operation: GetCurrentContendedMonitor done
+Event: 323.683 Executing VM operation: GetCurrentContendedMonitor
+Event: 323.683 Executing VM operation: GetCurrentContendedMonitor done
+Event: 323.683 Executing VM operation: GetOwnedMonitorInfo
+Event: 323.683 Executing VM operation: GetOwnedMonitorInfo done
+Event: 323.770 Executing VM operation: GetOwnedMonitorInfo
+Event: 323.770 Executing VM operation: GetOwnedMonitorInfo done
+Event: 323.771 Executing VM operation: GetCurrentContendedMonitor
+Event: 323.771 Executing VM operation: GetCurrentContendedMonitor done
+Event: 323.772 Executing VM operation: GetOwnedMonitorInfo
+Event: 323.772 Executing VM operation: GetOwnedMonitorInfo done
+Event: 323.772 Executing VM operation: GetCurrentContendedMonitor
+Event: 323.772 Executing VM operation: GetCurrentContendedMonitor done
+Event: 324.923 Executing VM operation: GetOwnedMonitorInfo
+Event: 324.923 Executing VM operation: GetOwnedMonitorInfo done
+Event: 324.923 Executing VM operation: GetCurrentContendedMonitor
+Event: 324.923 Executing VM operation: GetCurrentContendedMonitor done
+Event: 361.771 Executing VM operation: GetCurrentLocation
+Event: 361.771 Executing VM operation: GetCurrentLocation done
+Event: 361.771 Executing VM operation: EnterInterpOnlyMode
+Event: 361.771 Executing VM operation: EnterInterpOnlyMode done
+Event: 361.771 Executing VM operation: ChangeSingleStep
+Event: 361.771 Executing VM operation: ChangeSingleStep done
+Event: 361.771 Executing VM operation: ChangeSingleStep
+Event: 361.771 Executing VM operation: ChangeSingleStep done
+Event: 361.774 Executing VM operation: RedefineClasses
+Event: 361.775 Executing VM operation: RedefineClasses done
+Event: 361.779 Executing VM operation: ChangeBreakpoints
+Event: 361.779 Executing VM operation: ChangeBreakpoints done
+Event: 361.784 Executing VM operation: ChangeBreakpoints
+Event: 361.784 Executing VM operation: ChangeBreakpoints done
+Event: 361.785 Executing VM operation: EnterInterpOnlyMode
+Event: 361.785 Executing VM operation: EnterInterpOnlyMode done
+Event: 361.785 Executing VM operation: GetCurrentLocation
+Event: 361.785 Executing VM operation: GetCurrentLocation done
+Event: 361.785 Executing VM operation: ChangeSingleStep
+Event: 361.785 Executing VM operation: ChangeSingleStep done
+Event: 361.786 Executing VM operation: ChangeSingleStep
+Event: 361.786 Executing VM operation: ChangeSingleStep done
+Event: 361.787 Executing VM operation: GetCurrentContendedMonitor
+Event: 361.787 Executing VM operation: GetCurrentContendedMonitor done
+Event: 361.787 Executing VM operation: GetOwnedMonitorInfo
+Event: 361.787 Executing VM operation: GetOwnedMonitorInfo done
+Event: 361.788 Executing VM operation: GetOwnedMonitorInfo
+Event: 361.788 Executing VM operation: GetOwnedMonitorInfo done
+Event: 361.788 Executing VM operation: GetCurrentContendedMonitor
+Event: 361.788 Executing VM operation: GetCurrentContendedMonitor done
+Event: 361.788 Executing VM operation: GetOwnedMonitorInfo
+Event: 361.788 Executing VM operation: GetOwnedMonitorInfo done
+Event: 361.788 Executing VM operation: GetCurrentContendedMonitor
+Event: 361.788 Executing VM operation: GetCurrentContendedMonitor done
+Event: 361.788 Executing VM operation: GetOwnedMonitorInfo
+Event: 361.788 Executing VM operation: GetOwnedMonitorInfo done
+Event: 361.788 Executing VM operation: GetCurrentContendedMonitor
+Event: 361.788 Executing VM operation: GetCurrentContendedMonitor done
+Event: 361.789 Executing VM operation: GetOwnedMonitorInfo
+Event: 361.789 Executing VM operation: GetOwnedMonitorInfo done
+Event: 361.789 Executing VM operation: GetCurrentContendedMonitor
+Event: 361.789 Executing VM operation: GetCurrentContendedMonitor done
+Event: 361.789 Executing VM operation: GetCurrentContendedMonitor
+Event: 361.789 Executing VM operation: GetCurrentContendedMonitor done
+Event: 361.789 Executing VM operation: GetOwnedMonitorInfo
+Event: 361.789 Executing VM operation: GetOwnedMonitorInfo done
+Event: 361.883 Executing VM operation: GetOwnedMonitorInfo
+Event: 361.883 Executing VM operation: GetOwnedMonitorInfo done
+Event: 361.883 Executing VM operation: GetCurrentContendedMonitor
+Event: 361.883 Executing VM operation: GetCurrentContendedMonitor done
+Event: 361.885 Executing VM operation: GetOwnedMonitorInfo
+Event: 361.885 Executing VM operation: GetOwnedMonitorInfo done
+Event: 361.885 Executing VM operation: GetCurrentContendedMonitor
+Event: 361.885 Executing VM operation: GetCurrentContendedMonitor done
+Event: 363.906 Executing VM operation: GetOrSetLocal
+
+
+Dynamic libraries:
+0x00007ff7d1f50000 - 0x00007ff7d1f98000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\bin\javaw.exe
+0x00007ffc46ac0000 - 0x00007ffc46cb0000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffc450a0000 - 0x00007ffc45153000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffc44670000 - 0x00007ffc44915000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffc45de0000 - 0x00007ffc45e83000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffc44b60000 - 0x00007ffc44bfe000 	C:\Windows\System32\msvcrt.dll
+0x00007ffc466e0000 - 0x00007ffc46777000 	C:\Windows\System32\sechost.dll
+0x00007ffc452b0000 - 0x00007ffc453cf000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffc454c0000 - 0x00007ffc45654000 	C:\Windows\System32\USER32.dll
+0x00007ffc441e0000 - 0x00007ffc44201000 	C:\Windows\System32\win32u.dll
+0x00007ffc46780000 - 0x00007ffc467a6000 	C:\Windows\System32\GDI32.dll
+0x00007ffc442c0000 - 0x00007ffc44458000 	C:\Windows\System32\gdi32full.dll
+0x00007ffc445b0000 - 0x00007ffc4464e000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffc444b0000 - 0x00007ffc445aa000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffc3e390000 - 0x00007ffc3e614000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.1916_none_9e7a3577e461ddbd\COMCTL32.dll
+0x00007ffc44c00000 - 0x00007ffc44f36000 	C:\Windows\System32\combase.dll
+0x00007ffc44980000 - 0x00007ffc44a04000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffc45660000 - 0x00007ffc4568e000 	C:\Windows\System32\IMM32.DLL
+0x000000005f3f0000 - 0x000000005f4c2000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\jre\bin\msvcr100.dll
+0x000000005eac0000 - 0x000000005f3ed000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\jre\bin\server\jvm.dll
+0x00007ffc46950000 - 0x00007ffc46958000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffc3bf80000 - 0x00007ffc3bf89000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffc3bfd0000 - 0x00007ffc3bff4000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffc3cb90000 - 0x00007ffc3cb9a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffc45450000 - 0x00007ffc454bf000 	C:\Windows\System32\WS2_32.dll
+0x00007ffc3bd80000 - 0x00007ffc3bdad000 	C:\Windows\SYSTEM32\winmmbase.dll
+0x00007ffc44460000 - 0x00007ffc444aa000 	C:\Windows\System32\cfgmgr32.dll
+0x00007ffc41880000 - 0x00007ffc4188f000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\jre\bin\verify.dll
+0x00007ffc38c80000 - 0x00007ffc38ca9000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\jre\bin\java.dll
+0x00007ffc38c40000 - 0x00007ffc38c75000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\jre\bin\jdwp.dll
+0x00007ffc3a010000 - 0x00007ffc3a018000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\jre\bin\npt.dll
+0x00007ffc38c10000 - 0x00007ffc38c33000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\jre\bin\instrument.dll
+0x00007ffc38bf0000 - 0x00007ffc38c06000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\jre\bin\zip.dll
+0x00007ffc45690000 - 0x00007ffc45d77000 	C:\Windows\System32\SHELL32.dll
+0x00007ffc469d0000 - 0x00007ffc46a79000 	C:\Windows\System32\shcore.dll
+0x00007ffc43a30000 - 0x00007ffc441ab000 	C:\Windows\System32\windows.storage.dll
+0x00007ffc439f0000 - 0x00007ffc43a0e000 	C:\Windows\System32\profapi.dll
+0x00007ffc43980000 - 0x00007ffc439ca000 	C:\Windows\System32\powrprof.dll
+0x00007ffc43970000 - 0x00007ffc43980000 	C:\Windows\System32\UMPDC.dll
+0x00007ffc467b0000 - 0x00007ffc46802000 	C:\Windows\System32\shlwapi.dll
+0x00007ffc439d0000 - 0x00007ffc439e1000 	C:\Windows\System32\kernel.appcore.dll
+0x00007ffc44650000 - 0x00007ffc44667000 	C:\Windows\System32\cryptsp.dll
+0x00007ffc38be0000 - 0x00007ffc38be9000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\jre\bin\dt_socket.dll
+0x00007ffc38bc0000 - 0x00007ffc38bd6000 	C:\Windows\system32\napinsp.dll
+0x00007ffc38ba0000 - 0x00007ffc38bba000 	C:\Windows\system32\pnrpnsp.dll
+0x00007ffc43150000 - 0x00007ffc431b7000 	C:\Windows\System32\mswsock.dll
+0x00007ffc42ea0000 - 0x00007ffc42f6a000 	C:\Windows\SYSTEM32\DNSAPI.dll
+0x00007ffc46190000 - 0x00007ffc46198000 	C:\Windows\System32\NSI.dll
+0x00007ffc42e60000 - 0x00007ffc42e9a000 	C:\Windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ffc34be0000 - 0x00007ffc34bee000 	C:\Windows\System32\winrnr.dll
+0x00007ffc3fc60000 - 0x00007ffc3fc7c000 	C:\Windows\system32\NLAapi.dll
+0x00007ffc29bb0000 - 0x00007ffc29bc5000 	C:\Windows\system32\wshbth.dll
+0x00007ffc3e0e0000 - 0x00007ffc3e157000 	C:\Windows\System32\fwpuclnt.dll
+0x00007ffc441b0000 - 0x00007ffc441d6000 	C:\Windows\System32\bcrypt.dll
+0x00007ffc3c580000 - 0x00007ffc3c58a000 	C:\Windows\System32\rasadhlp.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:62752 -javaagent:C:\Users\wtime\Desktop\DS\eclipse-jee-2021-03-R-win32-x86_64\eclipse\configuration\org.eclipse.osgi\412\0\.cp\lib\javaagent-shaded.jar -Dfile.encoding=EUC-KR 
+java_command: YMain2
+java_class_path (initial): C:\Users\wtime\Desktop\DS\Java\Dec06_1_ConditionalStmt\bin;C:\Users\wtime\Desktop\DS\eclipse-jee-2021-03-R-win32-x86_64\eclipse\configuration\org.eclipse.osgi\412\0\.cp\lib\javaagent-shaded.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:/Users/wtime/Desktop/DS/eclipse-jee-2021-03-R-win32-x86_64/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955/jre/bin/server;C:/Users/wtime/Desktop/DS/eclipse-jee-2021-03-R-win32-x86_64/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955/jre/bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\bin;C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.312-1\jre\bin;C:\Users\wtime\AppData\Local\Microsoft\WindowsApps;;C:\Users\wtime\Desktop\DS\eclipse-jee-2021-03-R-win32-x86_64\eclipse;
+USERNAME=wtime
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 18362 (10.0.18362.1916)
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 33457304k(30058316k free), swap 38700184k(34607864k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.312-b07) for windows-amd64 JRE (1.8.0_312-b07), built on Nov  7 2021 09:53:06 by "Administrator" with MS VC++ 10.0 (VS2010)
+
+time: Mon Dec 06 11:28:16 2021
+timezone: 대한민국 표준시
+elapsed time: 363.918389 seconds (0d 0h 6m 3s)
+
